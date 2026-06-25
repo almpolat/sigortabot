@@ -5,7 +5,8 @@ import os
 from pathlib import Path
 from typing import Optional
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from dotenv import load_dotenv
 from loguru import logger
 
@@ -64,8 +65,7 @@ def generate_video_script(question: dict, model_name: Optional[str] = None) -> d
     if not api_key:
         raise EnvironmentError("GEMINI_API_KEY ortam değişkeni ayarlanmamış.")
 
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel(model_name, system_instruction=SYSTEM_PROMPT)
+    client = genai.Client(api_key=api_key)
 
     character = question["en_uygun_karakter"]
     char_config = load_character_config(character)
@@ -127,7 +127,11 @@ KOMİK POTANSİYEL: {question['komik_potansiyel']}/5
 """
 
     logger.info(f"Soru {question['id']} için senaryo üretiliyor...")
-    response = model.generate_content(user_prompt)
+    response = client.models.generate_content(
+        model=model_name,
+        contents=user_prompt,
+        config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT),
+    )
     raw = response.text.strip()
 
     # JSON bloğu varsa çıkar

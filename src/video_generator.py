@@ -5,11 +5,9 @@ import time
 from pathlib import Path
 from typing import Optional
 
-import vertexai
 from dotenv import load_dotenv
 from loguru import logger
 from tenacity import retry, stop_after_attempt, wait_exponential
-from vertexai.preview.vision_models import VideoGenerationModel
 
 load_dotenv()
 
@@ -24,6 +22,7 @@ VEO_SUPPORTED_DURATIONS = {2, 4, 6, 8}
 
 
 def init_vertex():
+    import vertexai  # lazy import — sadece gerçek video üretiminde gerekli
     project_id = os.getenv("GOOGLE_PROJECT_ID")
     location = os.getenv("GOOGLE_LOCATION", "us-central1")
     if not project_id:
@@ -57,6 +56,7 @@ def generate_scene_video(
         logger.warning(f"Süre desteklenmiyor, en yakına yuvarlandı: {duration_seconds}s")
 
     init_vertex()
+    from vertexai.preview.vision_models import VideoGenerationModel  # lazy import
     model_id = model_name or os.getenv("VEO_MODEL", "veo-3.1-generate-preview")
     model = VideoGenerationModel.from_pretrained(model_id)
 
