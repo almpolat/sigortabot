@@ -1,12 +1,11 @@
-"""Veo 3.1 için video senaryosu üretici (Gemini ile)."""
+"""Veo 3.1 için video senaryosu üretici (Anthropic Claude ile)."""
 
 import json
 import os
 from pathlib import Path
 from typing import Optional
 
-from google import genai
-from google.genai import types
+import anthropic
 from dotenv import load_dotenv
 from loguru import logger
 
@@ -21,6 +20,8 @@ CHARACTERS_DIR = Path(__file__).parent.parent / "characters"
 SCENE_HOOK_END = 2
 SCENE_MAIN_END = 6
 SCENE_TOTAL = 8
+
+DEFAULT_MODEL = "claude-haiku-4-5-20251001"
 
 SYSTEM_PROMPT = """Sen Türkiye'nin en komik sigorta animasyon videolarını yazan bir senaristsin.
 Her video tam olarak 8 saniye, 1080x1920 (9:16 dikey) formatında ve 3 sahneden oluşuyor:
@@ -43,7 +44,8 @@ Veo 3.1 için prompt kuralları:
 - Kamera açısını belirt (close-up, medium shot, wide shot)
 - Arka plan ve ortamı kısaca tanımla
 - Komik abartı önemli: büyük gözler, abartılı tepkiler, karikatür fizik
-"""
+
+SADECE geçerli JSON döndür, başka hiçbir açıklama veya metin ekleme."""
 
 
 def load_character_config(character_name: str) -> dict:
@@ -59,19 +61,18 @@ def generate_video_script(question: dict, model_name: Optional[str] = None) -> d
     Veo 3.1 için 3 sahneli video senaryosu üretir.
     Döndürür: {scenes: [...], veo_prompts: [...], metadata: {...}}
     """
-    model_name = model_name or os.getenv("GEMINI_MODEL", "gemini-2.5-pro")
-    api_key = os.getenv("GEMINI_API_KEY")
+    model_name = model_name or os.getenv("ANTHROPIC_MODEL", DEFAULT_MODEL)
+    api_key = os.getenv("ANTHROPIC_API_KEY")
 
     if not api_key:
-        raise EnvironmentError("GEMINI_API_KEY ortam değişkeni ayarlanmamış.")
+        raise EnvironmentError("ANTHROPIC_API_KEY ortam değişkeni ayarlanmamış.")
 
-    client = genai.Client(api_key=api_key)
+    client = anthropic.Anthropic(api_key=api_key)
 
     character = question["en_uygun_karakter"]
     char_config = load_character_config(character)
 
-    user_prompt = f"""
-Şu sigorta sorusu için 8 saniyelik komik animasyon videosu senaryosu yaz:
+    user_prompt = f"""Şu sigorta sorusu için 8 saniyelik komik animasyon videosu senaryosu yaz:
 
 SORU: {question['soru']}
 KATEGORİ: {question['kategori']}
@@ -123,16 +124,16 @@ KOMİK POTANSİYEL: {question['komik_potansiyel']}/5
     "sound_effects": ["ses efekti 1", "ses efekti 2"],
     "character_voice_tr": "Karakterin punch line'da söyleyeceği söz (Türkçe)"
   }}
-}}
-"""
+}}"""
 
-    logger.info(f"Soru {question['id']} için senaryo üretiliyor...")
-    response = client.models.generate_content(
+    logger.info(f"Soru {question['id']} için senaryo üretiliyor... (model: {model_name})")
+    response = client.messages.create(
         model=model_name,
-        contents=user_prompt,
-        config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT),
+        max_tokens=1024,
+        system=SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": user_prompt}],
     )
-    raw = response.text.strip()
+    raw = response.content[0].text.strip()
 
     # JSON bloğu varsa çıkar
     if "```json" in raw:
