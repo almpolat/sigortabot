@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Ortam değişkenleri (gizli veriler)
+.env
+*.env.local
+*.env.production
+
+# Google Cloud kimlik bilgileri
+*.json
+!data/questions.json
+!characters/**/*.json
+service-account*.json
+gcp-key*.json
+
+# Üretilen video çıktıları
+output/
+!output/.gitkeep
+
+# Üretilen script dosyaları
+scripts/
+!scripts/.gitkeep
+
+# Log dosyaları
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Video/medya dosyaları (büyük dosyalar)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.gif
+
+# Karakter render cache
+characters/cache/
+characters/**/*.blend1
+
+# Geçici dosyalar
+*.tmp
+*.temp
+.cache/

@@ -1,0 +1,28 @@
+{
+  "id": "cat",
+  "name_tr": "Kedi",
+  "description": "Know-it-all attitude but actually clueless — dismisses everything with a flick of the paw",
+  "personality_tr": "Her şeyi bilen havası taşıyan ama aslında hiçbir şey bilmeyen, sigortacıyı da küçümseyen kibirli kedi",
+  "visual": {
+    "style": "3D cartoon anthropomorphic orange tabby cat",
+    "colors": {
+      "body": "#E8820C",
+      "stripes": "#C4600A",
+      "eyes": "#4CAF50",
+      "belly": "#FDEBD0"
+    },
+    "signature_props": ["reading glasses pushed down nose", "half-read insurance brochure", "coffee mug"],
+    "expressions": {
+      "default": "half-lidded eyes, slightly bored expression",
+      "shocked": "fur standing on end, eyes fully open",
+      "smug": "slow blink, one paw dismissively waving"
+    },
+    "size": "medium, bipedal, wears a turtle-neck sweater"
+  },
+  "veo_style_guide": "3D animated anthropomorphic orange tabby cat character, standing on two legs, wearing a turtleneck sweater, large green eyes, reading glasses perched on nose, cartoon proportions, expressive face, soft studio lighting, 9:16 vertical frame",
+  "catchphrases_tr": [
+    "Tabii ki biliyorum... diye düşünüyordum.",
+    "Sigorta mı? Ben bunu çooktandır biliyordum.",
+    "Eh, benim için önemli değil zaten."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "bear",
+  "name_tr": "Ayı",
+  "description": "Big, calm, stoic — but completely baffled by mundane insurance paperwork",
+  "personality_tr": "Büyük ve sakin, güçlü ama sıradan sigorta bürokratik işlemleri karşısında şaşıran devasa ayı",
+  "visual": {
+    "style": "3D cartoon anthropomorphic brown bear",
+    "colors": {
+      "body": "#8B4513",
+      "muzzle": "#D2B48C",
+      "eyes": "#3D1F00",
+      "nose": "#1A0A00"
+    },
+    "signature_props": ["tiny reading glasses", "crumpled oversized policy form", "enormous coffee mug"],
+    "expressions": {
+      "default": "calm, slightly confused squint",
+      "baffled": "tiny glasses slipping down nose, papers everywhere",
+      "determined": "cracking knuckles, very serious face"
+    },
+    "size": "very large, gentle giant, wears a tiny bowtie that's comically small"
+  },
+  "veo_style_guide": "3D animated anthropomorphic brown bear character, bipedal, massive body wearing a tiny bowtie and miniature reading glasses, large gentle eyes, cartoon proportions with exaggerated size contrast, warm cozy lighting, 9:16 vertical frame",
+  "catchphrases_tr": [
+    "Bu formu doldurabilirdim... kış uykusundan önce.",
+    "Ben küçük şeyleri anlamam.",
+    "Gücüm var ama poliçeyi çözemedim."
+  ]
+}
