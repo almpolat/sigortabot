@@ -31,8 +31,8 @@ gcp-key*.json
 output/
 !output/.gitkeep
 
-# Üretilen script dosyaları
-scripts/
+# Üretilen script dosyaları (JSON), Python scriptleri izlenir
+scripts/*.json
 !scripts/.gitkeep
 
 # Log dosyaları
