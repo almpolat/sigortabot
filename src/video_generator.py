@@ -36,53 +36,20 @@ def _set_fal_key() -> None:
 
 
 def build_prompt(script: dict) -> str:
-    """Script JSON'dan yapılandırılmış veo3 promptu üretir."""
+    """Script JSON'dan sade bir veo3 sahnesi promptu üretir."""
     meta = script["metadata"]
     character_key = meta.get("karakter", "cockroach")
     character_desc = CHARACTER_MAP.get(character_key, f"anthropomorphic {character_key}")
 
     scenes_by_id = {s["id"]: s for s in script["scenes"]}
-    hook_scene      = scenes_by_id.get("hook", {})
-    main_scene      = scenes_by_id.get("main", {})
-    punchline_scene = scenes_by_id.get("punchline", {})
+    punchline = scenes_by_id.get("punchline", {}).get("on_screen_text", "")
 
-    hook_action      = hook_scene.get("character_action_tr", "")
-    main_action      = main_scene.get("character_action_tr", "")
-    punchline_action = punchline_scene.get("character_action_tr", "")
-
-    hook_text      = hook_scene.get("on_screen_text", "")
-    punchline_text = punchline_scene.get("on_screen_text", "")
-
-    audio = script.get("audio_direction", {})
-    mood          = audio.get("music_mood", "comedic")
-    voice_line    = audio.get("character_voice_tr", "")
-    sound_effects = audio.get("sound_effects", [])
-
-    setting = main_scene.get("description_tr", "Turkish home interior")
-    emotion = "comedic" if "komik" in mood.lower() else mood
-
-    parts = [
-        f"A photorealistic AI animated {character_desc} character with big expressive "
-        f"human-like eyes, wearing casual Turkish home clothes.",
-        f"The character is {main_action}.",
-        f"{setting} background.",
-        f"The character reacts with exaggerated {emotion} expression, "
-        f"realistic lip sync, natural movements.",
-        "Cinematic vertical 9:16 format, 4K quality, warm Turkish home lighting, "
-        "comedic atmosphere. 8 seconds.",
-        f"Hook: {hook_action} — Main scene: {main_action} — Punchline: {punchline_action}",
-    ]
-
-    if hook_text:
-        parts.append(f"Text overlay (hook): {hook_text}")
-    if punchline_text:
-        parts.append(f"Text overlay (punchline): {punchline_text}")
-    if voice_line:
-        parts.append(f"Character says: \"{voice_line}\"")
-    if sound_effects:
-        parts.append(f"Sound effects: {', '.join(sound_effects)}")
-
-    return " ".join(parts)
+    return (
+        f"{character_desc} sitting in a cozy Turkish living room, "
+        f"watching TV and reacting with shock to insurance news. "
+        f"The character looks at camera with surprised expression and says '{punchline}'. "
+        f"Photorealistic animation, 9:16 vertical, 4K, cinematic lighting, 8 seconds."
+    )
 
 
 @retry(
