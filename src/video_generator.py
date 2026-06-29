@@ -75,9 +75,6 @@ def generate_scene_video(
             resolution=resolution,
             duration_seconds=duration_seconds,
             number_of_videos=1,
-            fps=int(os.getenv("VIDEO_FPS", 24)),
-            enhance_prompt=True,
-            person_generation="allow_adult",
         ),
     )
 
@@ -105,29 +102,33 @@ def generate_scene_video(
 
 def generate_full_video(script: dict) -> Path:
     """
-    Bir senaryo için tüm sahneleri üretip birleştirir.
+    Senaryodaki 3 sahneyi tek bir 8 saniyelik Veo promptuna birleştirip üretir.
+    Veo Developer API yalnızca 4-8 saniye destekler; ayrı 2s klipler geçersiz.
 
-    Döndürür: birleşik final video dosyasının Path'i
+    Döndürür: üretilen video dosyasının Path'i
     """
     question_id = script["metadata"]["question_id"]
-    scene_paths = []
 
-    for veo_prompt_entry in script["veo_prompts"]:
-        scene_id = veo_prompt_entry["scene_id"]
-        prompt = veo_prompt_entry["prompt"]
-        scene = next(s for s in script["scenes"] if s["id"] == scene_id)
-        duration = scene["duration_seconds"]
+    # 3 sahne promptunu tek bir akışa dönüştür
+    prompts_by_scene = {e["scene_id"]: e["prompt"] for e in script["veo_prompts"]}
+    hook_prompt    = prompts_by_scene.get("hook", "")
+    main_prompt    = prompts_by_scene.get("main", "")
+    punch_prompt   = prompts_by_scene.get("punchline", "")
 
-        filename = f"q{question_id:02d}_{scene_id}.mp4"
-        scene_path = generate_scene_video(
-            prompt=prompt,
-            duration_seconds=duration,
-            output_filename=filename,
-        )
-        scene_paths.append(scene_path)
+    combined_prompt = (
+        f"An 8-second vertical (9:16) cartoon animation in three acts. "
+        f"FIRST 2 SECONDS — Hook: {hook_prompt} "
+        f"MIDDLE 4 SECONDS — Main scene: {main_prompt} "
+        f"LAST 2 SECONDS — Punchline: {punch_prompt}"
+    )
 
-    final_path = _concatenate_scenes(scene_paths, question_id)
-    return final_path
+    filename = f"q{question_id:02d}_final.mp4"
+    output_path = generate_scene_video(
+        prompt=combined_prompt,
+        duration_seconds=8,
+        output_filename=filename,
+    )
+    return output_path
 
 
 def _download_from_uri(uri: str, local_path: Path) -> None:
