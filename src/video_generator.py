@@ -48,13 +48,20 @@ def generate_scene_video(
     logger.debug(f"Model: {model_id} | Süre: {duration}s | Oran: {aspect_ratio}")
     logger.debug(f"Prompt: {prompt[:120]}...")
 
-    result = fal_client.run(
+    def on_queue_update(update):
+        if hasattr(update, "logs") and update.logs:
+            for log in update.logs:
+                logger.debug(f"[fal] {log.get('message', '')}")
+
+    result = fal_client.subscribe(
         model_id,
         arguments={
             "prompt": prompt,
             "aspect_ratio": aspect_ratio,
             "duration": duration,
         },
+        with_logs=True,
+        on_queue_update=on_queue_update,
     )
 
     video_url = result["video"]["url"]

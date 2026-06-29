@@ -71,5 +71,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sigortabot-videos-${{ github.run_number }}
-          path: output/*.mp4
+          path: |
+            output/*.mp4
+            output/*.json
           retention-days: 7
