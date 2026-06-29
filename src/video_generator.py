@@ -14,7 +14,7 @@ load_dotenv()
 OUTPUT_DIR = Path(__file__).parent.parent / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-FAL_MODEL = "fal-ai/kling-video/v2.1/standard/text-to-video"
+FAL_MODEL = "fal-ai/kling-video"
 
 
 def _set_fal_key() -> None:
