@@ -1,13 +1,11 @@
-"""Veo 3.1 ile video üretici — google-genai SDK, GEMINI_API_KEY ile çalışır."""
+"""Kling v2.1 ile video üretici — fal-ai client, FAL_KEY ile çalışır."""
 
 import os
-import time
 from pathlib import Path
 from typing import Optional
 
+import fal_client
 from dotenv import load_dotenv
-from google import genai
-from google.genai import types
 from loguru import logger
 from tenacity import retry, stop_after_attempt, wait_exponential
 
@@ -16,150 +14,81 @@ load_dotenv()
 OUTPUT_DIR = Path(__file__).parent.parent / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-VEO_MODEL = "veo-3.1-generate-preview"
-POLL_INTERVAL = 10   # saniye — operation tamamlanana kadar ne sıklıkla sorulsun
-POLL_TIMEOUT = 600   # saniye — maksimum bekleme süresi
+FAL_MODEL = "fal-ai/kling-video/v2.1/standard/text-to-video"
 
 
-def _client() -> genai.Client:
-    api_key = os.getenv("GEMINI_API_KEY")
-    if not api_key:
-        raise EnvironmentError("GEMINI_API_KEY ortam değişkeni ayarlanmamış.")
-    return genai.Client(api_key=api_key)
-
-
-def _poll_operation(client: genai.Client, operation: types.GenerateVideosOperation) -> types.GenerateVideosOperation:
-    """Operation tamamlanana kadar polling yapar."""
-    elapsed = 0
-    while not operation.done:
-        if elapsed >= POLL_TIMEOUT:
-            raise TimeoutError(f"Veo operasyonu {POLL_TIMEOUT}s içinde tamamlanamadı.")
-        logger.info(f"  Veo üretiyor... ({elapsed}s geçti, her {POLL_INTERVAL}s'de kontrol)")
-        time.sleep(POLL_INTERVAL)
-        elapsed += POLL_INTERVAL
-        operation = client.operations.get(operation)
-    return operation
+def _set_fal_key() -> None:
+    key = os.getenv("FAL_KEY")
+    if not key:
+        raise EnvironmentError("FAL_KEY ortam değişkeni ayarlanmamış.")
+    os.environ["FAL_KEY"] = key
 
 
 @retry(
     stop=stop_after_attempt(int(os.getenv("RETRY_ATTEMPTS", 3))),
-    wait=wait_exponential(multiplier=1, min=15, max=60),
+    wait=wait_exponential(multiplier=1, min=10, max=60),
     reraise=True,
 )
 def generate_scene_video(
     prompt: str,
-    duration_seconds: int,
     output_filename: str,
     aspect_ratio: str = "9:16",
-    resolution: str = "1080p",
-    model_name: Optional[str] = None,
+    duration: str = "5",
+    model: Optional[str] = None,
 ) -> Path:
     """
-    Tek bir sahne için Veo 3.1 ile video üretir.
-
-    Döndürür: kaydedilen video dosyasının Path'i
+    Kling v2.1 ile video üretir ve output/ altına MP4 olarak kaydeder.
+    Döndürür: kaydedilen dosyanın Path'i
     """
-    model_id = model_name or os.getenv("VEO_MODEL", VEO_MODEL)
-    client = _client()
+    _set_fal_key()
+    model_id = model or os.getenv("FAL_MODEL", FAL_MODEL)
     output_path = OUTPUT_DIR / output_filename
 
     logger.info(f"Video üretimi başlatılıyor: {output_filename}")
-    logger.debug(f"Model: {model_id} | Süre: {duration_seconds}s | Çözünürlük: {resolution} | Oran: {aspect_ratio}")
+    logger.debug(f"Model: {model_id} | Süre: {duration}s | Oran: {aspect_ratio}")
     logger.debug(f"Prompt: {prompt[:120]}...")
 
-    operation = client.models.generate_videos(
-        model=model_id,
-        prompt=prompt,
-        config=types.GenerateVideosConfig(
-            aspect_ratio=aspect_ratio,
-            resolution=resolution,
-            duration_seconds=duration_seconds,
-            number_of_videos=1,
-        ),
+    result = fal_client.run(
+        model_id,
+        arguments={
+            "prompt": prompt,
+            "aspect_ratio": aspect_ratio,
+            "duration": duration,
+        },
     )
 
-    operation = _poll_operation(client, operation)
+    video_url = result["video"]["url"]
+    logger.info(f"Video URL alındı, indiriliyor: {video_url[:60]}...")
 
-    if operation.error:
-        raise RuntimeError(f"Veo API hatası: {operation.error}")
+    import urllib.request
+    urllib.request.urlretrieve(video_url, str(output_path))
 
-    response: types.GenerateVideosResponse = operation.response
-    if not response or not response.generated_videos:
-        raise RuntimeError("Veo API boş yanıt döndürdü.")
-
-    video: types.Video = response.generated_videos[0].video
-
-    if video.video_bytes:
-        output_path.write_bytes(video.video_bytes)
-    elif video.uri:
-        _download_from_uri(video.uri, output_path)
-    else:
-        raise RuntimeError("Video verisi alınamadı (ne bytes ne uri).")
-
-    logger.success(f"Video kaydedildi: {output_path} ({output_path.stat().st_size // 1024} KB)")
+    size_kb = output_path.stat().st_size // 1024
+    logger.success(f"Video kaydedildi: {output_path} ({size_kb} KB)")
     return output_path
 
 
 def generate_full_video(script: dict) -> Path:
     """
-    Senaryodaki 3 sahneyi tek bir 8 saniyelik Veo promptuna birleştirip üretir.
-    Veo Developer API yalnızca 4-8 saniye destekler; ayrı 2s klipler geçersiz.
-
-    Döndürür: üretilen video dosyasının Path'i
+    Senaryodaki 3 sahneyi tek bir Kling promptuna birleştirip üretir.
+    Döndürür: kaydedilen video dosyasının Path'i
     """
     question_id = script["metadata"]["question_id"]
 
-    # 3 sahne promptunu tek bir akışa dönüştür
     prompts_by_scene = {e["scene_id"]: e["prompt"] for e in script["veo_prompts"]}
-    hook_prompt    = prompts_by_scene.get("hook", "")
-    main_prompt    = prompts_by_scene.get("main", "")
-    punch_prompt   = prompts_by_scene.get("punchline", "")
+    hook_prompt  = prompts_by_scene.get("hook", "")
+    main_prompt  = prompts_by_scene.get("main", "")
+    punch_prompt = prompts_by_scene.get("punchline", "")
 
     combined_prompt = (
-        f"An 8-second vertical (9:16) cartoon animation in three acts. "
-        f"FIRST 2 SECONDS — Hook: {hook_prompt} "
-        f"MIDDLE 4 SECONDS — Main scene: {main_prompt} "
-        f"LAST 2 SECONDS — Punchline: {punch_prompt}"
+        f"A 5-second vertical (9:16) cartoon animation in three acts. "
+        f"FIRST act — Hook: {hook_prompt} "
+        f"SECOND act — Main scene: {main_prompt} "
+        f"THIRD act — Punchline: {punch_prompt}"
     )
 
     filename = f"q{question_id:02d}_final.mp4"
-    output_path = generate_scene_video(
+    return generate_scene_video(
         prompt=combined_prompt,
-        duration_seconds=8,
         output_filename=filename,
     )
-    return output_path
-
-
-def _download_from_uri(uri: str, local_path: Path) -> None:
-    """GCS veya HTTPS URI'den dosya indirir."""
-    if uri.startswith("gs://"):
-        from google.cloud import storage
-        bucket_name, blob_name = uri[5:].split("/", 1)
-        storage.Client().bucket(bucket_name).blob(blob_name).download_to_filename(str(local_path))
-    else:
-        import urllib.request
-        urllib.request.urlretrieve(uri, str(local_path))
-
-
-def _concatenate_scenes(scene_paths: list[Path], question_id: int) -> Path:
-    """moviepy ile sahne videolarını sırayla birleştirir."""
-    from moviepy.editor import VideoFileClip, concatenate_videoclips
-
-    clips = [VideoFileClip(str(p)) for p in scene_paths]
-    final = concatenate_videoclips(clips, method="compose")
-    output_path = OUTPUT_DIR / f"q{question_id:02d}_final.mp4"
-
-    final.write_videofile(
-        str(output_path),
-        fps=int(os.getenv("VIDEO_FPS", 24)),
-        codec="libx264",
-        audio_codec="aac",
-    )
-
-    for clip in clips:
-        clip.close()
-    final.close()
-
-    logger.success(f"Final video birleştirildi: {output_path}")
-    return output_path
