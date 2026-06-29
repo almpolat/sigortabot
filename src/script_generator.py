@@ -129,7 +129,7 @@ KOMİK POTANSİYEL: {question['komik_potansiyel']}/5
     logger.info(f"Soru {question['id']} için senaryo üretiliyor... (model: {model_name})")
     response = client.messages.create(
         model=model_name,
-        max_tokens=1024,
+        max_tokens=2048,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_prompt}],
     )
@@ -141,7 +141,12 @@ KOMİK POTANSİYEL: {question['komik_potansiyel']}/5
     elif "```" in raw:
         raw = raw.split("```")[1].split("```")[0].strip()
 
-    script_data = json.loads(raw)
+    try:
+        script_data = json.loads(raw)
+    except json.JSONDecodeError as e:
+        logger.error(f"JSON parse hatası: {e}")
+        logger.debug(f"Ham yanıt ({len(raw)} karakter):\n{raw}")
+        raise
     script_data["metadata"] = {
         "question_id": question["id"],
         "soru": question["soru"],
