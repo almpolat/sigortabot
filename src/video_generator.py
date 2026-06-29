@@ -14,7 +14,7 @@ load_dotenv()
 OUTPUT_DIR = Path(__file__).parent.parent / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-FAL_MODEL = "fal-ai/kling-video/v1/standard/text-to-video"
+FAL_MODEL = "fal-ai/veo3"
 
 
 def _set_fal_key() -> None:
@@ -33,7 +33,7 @@ def generate_scene_video(
     prompt: str,
     output_filename: str,
     aspect_ratio: str = "9:16",
-    duration: str = "5",
+    duration: str = "8",
     model: Optional[str] = None,
 ) -> Path:
     """
