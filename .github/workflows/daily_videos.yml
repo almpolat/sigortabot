@@ -56,22 +56,12 @@ jobs:
             ${{ github.event.inputs.kategori && format('--kategori {0}', github.event.inputs.kategori) || '' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
 
-      - name: Run raporunu ve scriptleri yükle
+      - name: Tüm çıktıları yükle
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: sigortabot-run-${{ github.run_number }}
           path: |
-            output/last_run_report.json
-            scripts/
+            output/**
+            scripts/**
           retention-days: 30
-
-      - name: Üretilen videoları yükle
-        if: ${{ github.event.inputs.dry_run != 'true' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: sigortabot-videos-${{ github.run_number }}
-          path: |
-            output/*.mp4
-            output/*.json
-          retention-days: 7
