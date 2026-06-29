@@ -44,17 +44,19 @@ jobs:
       - name: Bağımlılıkları yükle
         run: pip install -r requirements.txt
 
+      - name: .env oluştur
+        run: |
+          echo "ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}" >> .env
+          echo "FAL_KEY=${{ secrets.FAL_KEY }}" >> .env
+
       - name: Pipeline'ı çalıştır
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          FAL_KEY: ${{ secrets.FAL_KEY }}
         run: |
           python -m src.main run \
             --n "${{ github.event.inputs.n || '5' }}" \
             ${{ github.event.inputs.kategori && format('--kategori {0}', github.event.inputs.kategori) || '' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
 
-      - name: Run raporunu yükle
+      - name: Run raporunu ve scriptleri yükle
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -71,24 +73,3 @@ jobs:
           name: sigortabot-videos-${{ github.run_number }}
           path: output/*.mp4
           retention-days: 7
-
-      - name: Özet
-        if: always()
-        run: |
-          echo "## SigortaBot Run Özeti" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          if [ -f output/last_run_report.json ]; then
-            python3 -c "
-          import json, sys
-          with open('output/last_run_report.json') as f:
-              results = json.load(f)
-          success = sum(1 for r in results if r.get('status') == 'success')
-          dry = sum(1 for r in results if r.get('status') == 'dry_run')
-          error = sum(1 for r in results if 'error' in r.get('status',''))
-          print(f'| Durum | Sayı |')
-          print(f'|-------|------|')
-          print(f'| ✅ Başarılı | {success} |')
-          print(f'| 🟡 Dry Run | {dry} |')
-          print(f'| ❌ Hata | {error} |')
-          " >> $GITHUB_STEP_SUMMARY
-          fi
