@@ -1,0 +1,104 @@
+name: Daily Video Generation
+
+on:
+  schedule:
+    # Her gün TSİ 09:00'da çalıştır (06:00 UTC)
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      n:
+        description: "Üretilecek video sayısı"
+        required: false
+        default: "5"
+        type: string
+      kategori:
+        description: "Kategori filtresi (boş = hepsi)"
+        required: false
+        default: ""
+        type: string
+      dry_run:
+        description: "Dry run (video üretme)"
+        required: false
+        default: false
+        type: boolean
+
+env:
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  generate-videos:
+    name: Komik Sigorta Videoları Üret
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Kodu indir
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: Bağımlılıkları yükle
+        run: pip install -r requirements.txt
+
+      - name: GCP kimlik bilgilerini ayarla
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+
+      - name: gcloud SDK kur
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Pipeline'ı çalıştır
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
+          GOOGLE_LOCATION: ${{ secrets.GOOGLE_LOCATION || 'us-central1' }}
+          VEO_MODEL: ${{ secrets.VEO_MODEL || 'veo-3.1-generate-preview' }}
+        run: |
+          python -m src.main run \
+            --n "${{ github.event.inputs.n || '5' }}" \
+            ${{ github.event.inputs.kategori && format('--kategori {0}', github.event.inputs.kategori) || '' }} \
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+
+      - name: Run raporunu yükle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sigortabot-run-${{ github.run_number }}
+          path: |
+            output/last_run_report.json
+            scripts/
+          retention-days: 30
+
+      - name: Üretilen videoları yükle
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sigortabot-videos-${{ github.run_number }}
+          path: output/*.mp4
+          retention-days: 7
+
+      - name: Özet
+        if: always()
+        run: |
+          echo "## SigortaBot Run Özeti" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f output/last_run_report.json ]; then
+            python3 -c "
+          import json, sys
+          with open('output/last_run_report.json') as f:
+              results = json.load(f)
+          success = sum(1 for r in results if r.get('status') == 'success')
+          dry = sum(1 for r in results if r.get('status') == 'dry_run')
+          error = sum(1 for r in results if 'error' in r.get('status',''))
+          print(f'| Durum | Sayı |')
+          print(f'|-------|------|')
+          print(f'| ✅ Başarılı | {success} |')
+          print(f'| 🟡 Dry Run | {dry} |')
+          print(f'| ❌ Hata | {error} |')
+          " >> $GITHUB_STEP_SUMMARY
+          fi

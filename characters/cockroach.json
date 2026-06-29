@@ -1,0 +1,27 @@
+{
+  "id": "cockroach",
+  "name_tr": "Hamamböceği",
+  "description": "Indestructible survivor who has seen it all — absolutely nothing phases him",
+  "personality_tr": "Her şeyden sağ kurtulan, hiçbir şeyden etkilenmeyen, sigorta şirketlerinden bile kurtulan efsane",
+  "visual": {
+    "style": "3D cartoon anthropomorphic cockroach",
+    "colors": {
+      "body": "#4a3728",
+      "highlights": "#8B6914",
+      "eyes": "#FF4500"
+    },
+    "signature_props": ["tiny briefcase", "crumpled insurance papers", "sunglasses"],
+    "expressions": {
+      "default": "smug grin, one antenna raised skeptically",
+      "shocked": "antennae standing straight up, eyes wide",
+      "smug": "arms crossed, knowing smile, one eye squinted"
+    },
+    "size": "medium, stands upright on two legs, wears a tiny vest"
+  },
+  "veo_style_guide": "3D animated anthropomorphic cockroach character, cartoon style, standing upright, wearing a tiny brown vest, large expressive eyes, two antennae, comical proportions, warm studio lighting, 9:16 vertical frame",
+  "catchphrases_tr": [
+    "Ben hayatta kalırım, siz bakar mısınız?",
+    "Nükleer savaştan çıktım, sigortasız kalmam!",
+    "Benim için poliçe yazan sigortacı kalmadı."
+  ]
+}

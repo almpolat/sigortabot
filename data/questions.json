@@ -1,0 +1,527 @@
+{
+  "meta": {
+    "toplam_soru": 50,
+    "son_guncelleme": "2026-06-25",
+    "video_format": {
+      "cozunurluk": "1080x1920",
+      "sure_saniye": 8,
+      "oran": "9:16",
+      "sahne_yapisi": {
+        "hook_sahnesi": "0-2s: Karakter kameraya bakıyor, şaşkın ifade",
+        "komik_sahne": "2-6s: Komik durum/tepki",
+        "punch_line": "6-8s: Karakter kameraya dönüp bir şey söylüyor"
+      }
+    },
+    "karakterler": {
+      "cockroach": "Hamamböceği - Hayatta kalma uzmanı, hiçbir şeyden etkilenmiyor",
+      "cat": "Kedi - Her şeyi bilen, kibirli, ama aslında hiçbir şey bilmiyor",
+      "fox": "Tilki - Kurnaz, her zaman bir çözüm yolu bulan",
+      "chicken": "Tavuk - Aşırı endişeli, her şeyden korkan",
+      "bear": "Ayı - Büyük ve sakin ama sıradan şeyler karşısında şaşıran",
+      "pigeon": "Güvercin - Şehirli, her yerde gezen, çok şey bilen",
+      "mouse": "Fare - Küçük ama akıllı, her deliği biliyor"
+    }
+  },
+  "sorular": [
+    {
+      "id": 1,
+      "soru": "Kasko ile trafik sigortası arasındaki fark nedir?",
+      "kategori": "kasko",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "cat",
+      "hook": "BİR FARK VAR MI KI?",
+      "reels_caption": "Kasko mu trafik mi? 🤔 Kedimiz açıklıyor ama o da bilmiyor sanırım 😹",
+      "hashtags": ["#kasko", "#trafiksigortasi", "#sigortakomedi", "#InsuranceTurkey", "#KomikSigorta", "#sigorta101", "#FunnyInsurance", "#türkiye", "#AnimasyonVideo", "#SigortaBot"]
+    },
+    {
+      "id": 2,
+      "soru": "Zorunlu trafik sigortası olmadan araç kullanırsam ne olur?",
+      "kategori": "trafik_sigortasi",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "chicken",
+      "hook": "KURAL YOK, SORUN VAR!",
+      "reels_caption": "Sigortasız araba kullanan tavuk pişmanlıkta yüzüyor 😭🚗 Sen de böyle olma!",
+      "hashtags": ["#trafiksigortasi", "#zorunlusigorta", "#TrafficInsurance", "#sigortaceza", "#KomikSigorta", "#AnimasyonVideo", "#sigorta", "#türkiye", "#SigortaBot", "#tavuk"]
+    },
+    {
+      "id": 3,
+      "soru": "Kasko yaptırmak zorunlu mu?",
+      "kategori": "kasko",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "fox",
+      "hook": "ZORUNLU DEĞİL AMA...",
+      "reels_caption": "Tilki diyor ki: Kasko zorunlu değil ama pişman olursun 🦊💸",
+      "hashtags": ["#kasko", "#kaskosigorta", "#ComprehensiveInsurance", "#KomikSigorta", "#tilki", "#SigortaBot", "#sigorta", "#türkiye", "#AnimasyonVideo", "#FunnyVideo"]
+    },
+    {
+      "id": 4,
+      "soru": "Kasko primini ne belirler?",
+      "kategori": "kasko",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "bear",
+      "hook": "NEDEN BU KADAR PAHALI?",
+      "reels_caption": "Ayı sigorta primini görünce donup kaldı 🐻😱 Arabanın değeri mi, sürücünün deliliği mi? 😂",
+      "hashtags": ["#kasko", "#kaskoprim", "#InsurancePremium", "#KomikSigorta", "#ayı", "#SigortaBot", "#sigorta", "#türkiye", "#AnimasyonVideo", "#FunnyInsurance"]
+    },
+    {
+      "id": 5,
+      "soru": "Trafik sigortası hangi hasarları karşılar?",
+      "kategori": "trafik_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "pigeon",
+      "hook": "SADECE BAŞKASININ ZARARI!",
+      "reels_caption": "Güvercin anlatıyor: Trafik sigortası senin aracını değil, karşındakini sever 🐦💔",
+      "hashtags": ["#trafiksigortasi", "#TrafficInsurance", "#KomikSigorta", "#güvercin", "#SigortaBot", "#sigorta", "#türkiye", "#AnimasyonVideo", "#sigortatavsiyeleri", "#FunnyBird"]
+    },
+    {
+      "id": 6,
+      "soru": "Sigorta şirketim hasar ödemezse ne yapabilirim?",
+      "kategori": "kasko",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "cockroach",
+      "hook": "ÖDEMEZLER! NE YAPACAKSIN?",
+      "reels_caption": "Hamamböceği bile 'Ben de bilmezdim!' diyor 🪳😤 Sigortacıyla savaşın rehberi!",
+      "hashtags": ["#sigortaşikayeti", "#HasarOdeme", "#InsuranceClaim", "#KomikSigorta", "#hamamböceği", "#SigortaBot", "#sigorta", "#türkiye", "#AnimasyonVideo", "#sigortatüketici"]
+    },
+    {
+      "id": 7,
+      "soru": "Sağlık sigortası ek teminat ne demek?",
+      "kategori": "saglik_sigortasi",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "mouse",
+      "hook": "EK TEMİNAT: PARA TUZAĞI MI?",
+      "reels_caption": "Fare ek teminatları araştırdı, kafası karıştı 🐭📋 Sana da tanıdık geldi mi?",
+      "hashtags": ["#sagliksigortasi", "#ekteminat", "#HealthInsurance", "#KomikSigorta", "#fare", "#SigortaBot", "#sigorta", "#türkiye", "#AnimasyonVideo", "#sigortasözlüğü"]
+    },
+    {
+      "id": 8,
+      "soru": "DASK zorunlu mu, her ev sahibi yaptırmalı mı?",
+      "kategori": "dask",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "chicken",
+      "hook": "DEPREM? DASK? ZORUNLU!",
+      "reels_caption": "DASK yokken deprem olursa tavuk gibi paniğe kapılırsın 🐔🏠💥 Zorunlu bu kardeşim!",
+      "hashtags": ["#DASK", "#depremSigortasi", "#EarthquakeInsurance", "#KomikSigorta", "#tavuk", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#zorunlusigorta", "#deprem"]
+    },
+    {
+      "id": 9,
+      "soru": "DASK ne kadar ödeme yapar?",
+      "kategori": "dask",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "bear",
+      "hook": "DEPREM SONRASI HESAP...",
+      "reels_caption": "Ayı depremden sonra DASK tazminatını hesaplarken gözleri doldu 🐻💧 Yeterli mi?",
+      "hashtags": ["#DASK", "#depremtazminat", "#EarthquakeCoverage", "#KomikSigorta", "#ayı", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sigortatazminat", "#deprem"]
+    },
+    {
+      "id": 10,
+      "soru": "Konut sigortası DASK'ı kapsıyor mu?",
+      "kategori": "konut_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "fox",
+      "hook": "KONUT = DASK DEĞİL!",
+      "reels_caption": "Tilki öğrendi: Konut sigortası DASK değil! İkisi ayrı şeyler 🦊🏠 Bilmeyenler ❤️",
+      "hashtags": ["#konutsigortasi", "#DASK", "#HomeInsurance", "#KomikSigorta", "#tilki", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sigortafarkı", "#evsigorta"]
+    },
+    {
+      "id": 11,
+      "soru": "Hayat sigortası ne zaman para öder?",
+      "kategori": "hayat_sigortasi",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "cockroach",
+      "hook": "ÖLDÜKTEN SONRA MI PARA?",
+      "reels_caption": "Hamamböceği 'Ben ölmem ki' dedi ama... hayat sigortası herkese lazım 🪳💀💰",
+      "hashtags": ["#hayatsigortasi", "#LifeInsurance", "#KomikSigorta", "#hamamböceği", "#SigortaBot", "#sigorta", "#türkiye", "#AnimasyonVideo", "#sigortatavsiyeleri", "#FunnyAnimation"]
+    },
+    {
+      "id": 12,
+      "soru": "Birden fazla sigorta şirketinden tazminat alınabilir mi?",
+      "kategori": "kasko",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "fox",
+      "hook": "İKİ ŞİRKETTEN PARA MI?",
+      "reels_caption": "Tilki çift tazminat planı yaptı ama sistem onu tanıdı 🦊😅 Mükerrür tazminat olmaz!",
+      "hashtags": ["#sigortatazminat", "#InsuranceFraud", "#KomikSigorta", "#tilki", "#SigortaBot", "#sigorta", "#türkiye", "#AnimasyonVideo", "#mükrerertazminat", "#sigortahukuku"]
+    },
+    {
+      "id": 13,
+      "soru": "Trafik sigortası primim neden her yıl artıyor?",
+      "kategori": "trafik_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "cat",
+      "hook": "NEDEN ARTIYOR BU PRIM?",
+      "reels_caption": "Kedi sigorta primini görünce 'Bu kadar enflasyon mu?' dedi 😼💸 Hepimizin derdi!",
+      "hashtags": ["#trafiksigortasi", "#sigortaprim", "#InsurancePremium", "#KomikSigorta", "#kedi", "#SigortaBot", "#türkiye", "#enflasyon", "#AnimasyonVideo", "#FunnyCat"]
+    },
+    {
+      "id": 14,
+      "soru": "Kaza yaparsam trafik sigortası kendi arabamı da karşılar mı?",
+      "kategori": "trafik_sigortasi",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "chicken",
+      "hook": "KENDİ ARABAM SİGORTALI MI?",
+      "reels_caption": "Tavuk kaza yapıp kendi aracına baktı... trafik sigortası onu görmezden geldi 🐔🚗💔",
+      "hashtags": ["#trafiksigortasi", "#kaza", "#TrafficAccident", "#KomikSigorta", "#tavuk", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sigortakaza", "#FunnyChicken"]
+    },
+    {
+      "id": 15,
+      "soru": "Hasarsızlık indirimi nasıl işler?",
+      "kategori": "kasko",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "pigeon",
+      "hook": "KAZA YAPMA, İNDİRİM AL!",
+      "reels_caption": "Güvercin 5 yıl hasarsız uçtu, dev indirim aldı 🐦✨ Hasarsızlık bonusu gerçek!",
+      "hashtags": ["#hasarsızlık", "#sigortaindirimi", "#NoClaims", "#KomikSigorta", "#güvercin", "#SigortaBot", "#sigorta", "#türkiye", "#AnimasyonVideo", "#sigortabonusu"]
+    },
+    {
+      "id": 16,
+      "soru": "Özel sağlık sigortası SGK'yı geçersiz kılar mı?",
+      "kategori": "saglik_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "bear",
+      "hook": "SGK MI ÖZEL Mİ?",
+      "reels_caption": "Ayı hastanenin kapısında 'SGK mı özel mi?' diye donup kaldı 🐻🏥 İkisi birden olur!",
+      "hashtags": ["#sagliksigortasi", "#SGK", "#HealthInsurance", "#KomikSigorta", "#ayı", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#özelsağlık", "#hastane"]
+    },
+    {
+      "id": 17,
+      "soru": "Sigorta poliçesi iptal edilirse para iade edilir mi?",
+      "kategori": "kasko",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "mouse",
+      "hook": "İPTAL ETTIM, PARAM NERDE?",
+      "reels_caption": "Fare poliçesini iptal etti, parasını bekledi... bekledi... 🐭💰⏳ Detaylar önemli!",
+      "hashtags": ["#sigortaiptali", "#PolicyCancellation", "#KomikSigorta", "#fare", "#SigortaBot", "#sigorta", "#türkiye", "#AnimasyonVideo", "#paraiadeesi", "#sigortahakları"]
+    },
+    {
+      "id": 18,
+      "soru": "Depremde yıkılan ev için DASK ne kadar öder?",
+      "kategori": "dask",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "cockroach",
+      "hook": "EV YIKILDI, DASK NERDE?",
+      "reels_caption": "Hamamböceği depremden çıktı, ev yoktu ama DASK vardı 🪳🏚️ Yeterli mi?",
+      "hashtags": ["#DASK", "#deprem", "#EarthquakeInsurance", "#KomikSigorta", "#hamamböceği", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#depremtazminat", "#evsigortasi"]
+    },
+    {
+      "id": 19,
+      "soru": "Trafik kazasında karşı taraf sigortasız ise ne olur?",
+      "kategori": "trafik_sigortasi",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "fox",
+      "hook": "KARŞI TARAF SİGORTASIZ!",
+      "reels_caption": "Tilki kazayı anlattı: 'Sigortası yoktu...' 🦊😱 Güvence Hesabı devreye girer!",
+      "hashtags": ["#trafiksigortasi", "#sigortasızkaza", "#UninsuredDriver", "#KomikSigorta", "#tilki", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#güvencehesabı", "#kazatazminat"]
+    },
+    {
+      "id": 20,
+      "soru": "Konut sigortasında yangın teminatı neler kapsar?",
+      "kategori": "konut_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "chicken",
+      "hook": "EV YANDI, NE KAPSAR?",
+      "reels_caption": "Tavuk mutfakta yangın çıkardı, konut sigortasını aradı 🐔🔥 Neler kapsıyor?",
+      "hashtags": ["#konutsigortasi", "#yangınsigortası", "#HomeInsurance", "#KomikSigorta", "#tavuk", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#yangınteminatı", "#evsigortasi"]
+    },
+    {
+      "id": 21,
+      "soru": "Sağlık sigortasında muafiyet ne demek?",
+      "kategori": "saglik_sigortasi",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "cat",
+      "hook": "MUAFİYET = KENDI CEPTEN?",
+      "reels_caption": "Kedi muafiyeti öğrenince doktora gitmekten vazgeçti 😾💊 Muafiyet tuzağına düşme!",
+      "hashtags": ["#sagliksigortasi", "#muafiyet", "#HealthInsurance", "#KomikSigorta", "#kedi", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sigortasözlüğü", "#FunnyCat"]
+    },
+    {
+      "id": 22,
+      "soru": "İşyeri sigortası hangi riskleri kapsar?",
+      "kategori": "isyeri_sigortasi",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "pigeon",
+      "hook": "İŞYERİ YANINCA...",
+      "reels_caption": "Güvercin ofisindeki riski anlattı, aklın karıştı değil mi? 🐦🏢 İşyeri sigortası şart!",
+      "hashtags": ["#isyerisigortasi", "#BusinessInsurance", "#KomikSigorta", "#güvercin", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#işyeri", "#sigortaişyeri", "#FunnyBird"]
+    },
+    {
+      "id": 23,
+      "soru": "Hayat sigortası yatırım amaçlı kullanılabilir mi?",
+      "kategori": "hayat_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "mouse",
+      "hook": "HAYAT SİGORTASI = YATIRIM?",
+      "reels_caption": "Fare hayat sigortasını yatırım sandı, komisyon gördü dondu 🐭📈 Fark nedir?",
+      "hashtags": ["#hayatsigortasi", "#birikimliSigorta", "#LifeInsurance", "#KomikSigorta", "#fare", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sigortayatırım", "#finanstavsiyeleri"]
+    },
+    {
+      "id": 24,
+      "soru": "Kasko hasarı için hangi belgeler gerekir?",
+      "kategori": "kasko",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "bear",
+      "hook": "KAZA OLDU, EVRAK LAZIM!",
+      "reels_caption": "Ayı hasarını bildirmek için evrak toplarken küçüldü küçüldü 🐻📄 Hangi belgeler lazım?",
+      "hashtags": ["#kasko", "#hasarbildirimi", "#InsuranceClaim", "#KomikSigorta", "#ayı", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#hasarbelgeleri", "#kaskotips"]
+    },
+    {
+      "id": 25,
+      "soru": "Araç değer kaybı tazminatı nedir?",
+      "kategori": "kasko",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "cockroach",
+      "hook": "KAZA SONRASI ARAÇ DEĞERI",
+      "reels_caption": "Hamamböceği aracının değer kaybını öğrenince havasız kaldı 🪳🚗📉 Tazminat alınabilir!",
+      "hashtags": ["#değerkaybı", "#kaskotazminat", "#VehicleDepreciation", "#KomikSigorta", "#hamamböceği", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#aractazminat", "#kazahasar"]
+    },
+    {
+      "id": 26,
+      "soru": "Trafik sigortası poliçe yenileme nasıl yapılır?",
+      "kategori": "trafik_sigortasi",
+      "komik_potansiyel": 2,
+      "en_uygun_karakter": "fox",
+      "hook": "YENİLEMEYİ UNUTTUM!",
+      "reels_caption": "Tilki poliçe yenilemeyi unuttu, polis onu bekliyordu 🦊👮 Otomatik yenileme şart!",
+      "hashtags": ["#trafiksigortasi", "#policeYenileme", "#InsuranceRenewal", "#KomikSigorta", "#tilki", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sigortatakibi", "#yenileme"]
+    },
+    {
+      "id": 27,
+      "soru": "Sağlık sigortasında bekleme süresi ne kadar?",
+      "kategori": "saglik_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "cat",
+      "hook": "3 AY BEKLE, SONRA GEL!",
+      "reels_caption": "Kedi sigorta yaptırıp hastaneye koştu ama kapıda durduruldu 😾⏳ Bekleme süresi var!",
+      "hashtags": ["#sagliksigortasi", "#beklemeSuresi", "#WaitingPeriod", "#KomikSigorta", "#kedi", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sağlıksigortası", "#FunnyCat"]
+    },
+    {
+      "id": 28,
+      "soru": "DASK poliçesi olmadan ev satılabilir mi?",
+      "kategori": "dask",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "pigeon",
+      "hook": "DASK YOKSA EV SATILMAZ!",
+      "reels_caption": "Güvercin evini satmak istedi ama DASK yoktu, noter durdu 🐦🏠❌ Zorunlu bilgi!",
+      "hashtags": ["#DASK", "#evSatışı", "#PropertySale", "#KomikSigorta", "#güvercin", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#tapu", "#evsigortasi"]
+    },
+    {
+      "id": 29,
+      "soru": "İş kazası sigortası ne zaman devreye girer?",
+      "kategori": "isyeri_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "chicken",
+      "hook": "İŞTE KAZA: SİGORTA NERDE?",
+      "reels_caption": "Tavuk iş yerinde düştü, sigorta yoktu 🐔🤕💸 İş kazası sigortası şart!",
+      "hashtags": ["#işkazası", "#isyerisigortasi", "#WorkplaceAccident", "#KomikSigorta", "#tavuk", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#işkazasısigortası", "#çalışangüvencesi"]
+    },
+    {
+      "id": 30,
+      "soru": "Hayat sigortasında intihar muafiyeti var mı?",
+      "kategori": "hayat_sigortasi",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "bear",
+      "hook": "POLİÇE DETAYLARI ÖNEMLİ!",
+      "reels_caption": "Ayı poliçenin ince yazısını okurken gözlüğünü kırdı 🐻🔍 Şartnameleri oku!",
+      "hashtags": ["#hayatsigortasi", "#policeDetayları", "#LifeInsurance", "#KomikSigorta", "#ayı", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sigortaşartları", "#policeokuma"]
+    },
+    {
+      "id": 31,
+      "soru": "Araç sigortası başkasının kullanımında geçerli mi?",
+      "kategori": "kasko",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "fox",
+      "hook": "ARKADAŞIN ARABANI ASTIK!",
+      "reels_caption": "Tilki arabasını arkadaşına verdi, kaza oldu... sigorta var mı? 🦊🚗💥",
+      "hashtags": ["#kasko", "#araçdevri", "#CarInsurance", "#KomikSigorta", "#tilki", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#bakakullanım", "#aracsigortasi"]
+    },
+    {
+      "id": 32,
+      "soru": "Konut sigortası kira kaybını karşılar mı?",
+      "kategori": "konut_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "mouse",
+      "hook": "EV YANINCA KİRA NERDE?",
+      "reels_caption": "Fare evi yandı, kiracı gitti, kira kaybı sigortada var mı? 🐭🏚️💰",
+      "hashtags": ["#konutsigortasi", "#kiraKaybı", "#RentalIncome", "#KomikSigorta", "#fare", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#evsigortasi", "#kiraCayma"]
+    },
+    {
+      "id": 33,
+      "soru": "Tamamlayıcı sağlık sigortası nedir?",
+      "kategori": "saglik_sigortasi",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "cockroach",
+      "hook": "SGK ÜSTÜNE EKSTRA TEMINAT",
+      "reels_caption": "Hamamböceği tamamlayıcı sigortayı anladı: 'SGK'nın eksiklerini kapıyor!' 🪳🏥",
+      "hashtags": ["#tamamlayıcısigorta", "#sagliksigortasi", "#SupplementaryHealth", "#KomikSigorta", "#hamamböceği", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sağlıkSigorta", "#SGK"]
+    },
+    {
+      "id": 34,
+      "soru": "Kasko sigortası sel ve su baskınını karşılar mı?",
+      "kategori": "kasko",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "pigeon",
+      "hook": "ARAÇ SUDA, KASKO NERDE?",
+      "reels_caption": "Güvercin sel suyunda yüzen aracına baktı, kaskoyu aradı 🐦🌊🚗 Doğal afet teminatı!",
+      "hashtags": ["#kasko", "#sel", "#FloodInsurance", "#KomikSigorta", "#güvercin", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#doğalafet", "#aracsigortasi"]
+    },
+    {
+      "id": 35,
+      "soru": "İşsizlik sigortasından ne kadar para alınır?",
+      "kategori": "isyeri_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "cat",
+      "hook": "İŞSİZ KALDIM, PARA GELECEK!",
+      "reels_caption": "Kedi işten çıkınca işsizlik sigortasını araştırdı 😾💼 Maaşının yüzde kaçı?",
+      "hashtags": ["#işsizlikSigortası", "#UnemploymentBenefit", "#KomikSigorta", "#kedi", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#işsizlik", "#işkur", "#FunnyCat"]
+    },
+    {
+      "id": 36,
+      "soru": "Evde çalınma olayında konut sigortası öder mi?",
+      "kategori": "konut_sigortasi",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "fox",
+      "hook": "HIRSIZLİK OLDU, SIGORTA NE YAPAR?",
+      "reels_caption": "Tilki eve geldi her şey gitmişti... konut sigortası hırsızlığı kapsar mı? 🦊🏠🔓",
+      "hashtags": ["#konutsigortasi", "#hırsızlık", "#TheftInsurance", "#KomikSigorta", "#tilki", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#evhırsızlık", "#sigortakapsamı"]
+    },
+    {
+      "id": 37,
+      "soru": "Sigortacıya yanlış bilgi verirsem ne olur?",
+      "kategori": "kasko",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "chicken",
+      "hook": "YANLIŞ BİLGİ = BÜYÜK SORUN!",
+      "reels_caption": "Tavuk sigortacıya yanlış bilgi verdi, hasar anında gerçek ortaya çıktı 🐔😰 Dürüst ol!",
+      "hashtags": ["#sigortaYanlışBilgi", "#InsuranceFraud", "#KomikSigorta", "#tavuk", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sigortahilesi", "#dürüstlük", "#FunnyChicken"]
+    },
+    {
+      "id": 38,
+      "soru": "Hayat sigortası lehdar değiştirilir mi?",
+      "kategori": "hayat_sigortasi",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "bear",
+      "hook": "PARA KİME KALACAK?",
+      "reels_caption": "Ayı eski sevgilisini lehdar yazmış, değiştirmeyi unutmuş 🐻💔 Lehdarı güncelle!",
+      "hashtags": ["#hayatsigortasi", "#lehdar", "#Beneficiary", "#KomikSigorta", "#ayı", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#hayatSigorta", "#poliçegüncelleme"]
+    },
+    {
+      "id": 39,
+      "soru": "Araç kendi kendine yanmışsa kasko öder mi?",
+      "kategori": "kasko",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "mouse",
+      "hook": "ARAÇ KENDI YANDI, KASKO?",
+      "reels_caption": "Fare arabasının yanmaya başladığını gördü, hemen kaskoyu aradı 🐭🔥🚗 Öder mi?",
+      "hashtags": ["#kasko", "#araçYangını", "#CarFire", "#KomikSigorta", "#fare", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#aracsigortasi", "#yangınteminatı"]
+    },
+    {
+      "id": 40,
+      "soru": "Trafik kazasında yaralı varsa ne yapmalıyım?",
+      "kategori": "trafik_sigortasi",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "pigeon",
+      "hook": "KAZA OLDU, İLK ADIM NE?",
+      "reels_caption": "Güvercin kazada ilk ne yapacağını öğretiyor 🐦🚨 112 mi, sigorta mı, polis mi?",
+      "hashtags": ["#trafiksigortasi", "#kazaAnı", "#AccidentGuide", "#KomikSigorta", "#güvercin", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#trafikkaza", "#ilkyardım"]
+    },
+    {
+      "id": 41,
+      "soru": "Sağlık sigortasında anlaşmalı hastane dışına gidersem ne olur?",
+      "kategori": "saglik_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "cockroach",
+      "hook": "ANLAŞMASIZ HASTANE = CEP PARASI",
+      "reels_caption": "Hamamböceği anlaşmalı hastaneyi bulamadı, gittiği yerde fatura geldi 🪳🏥💸 Dikkat!",
+      "hashtags": ["#sagliksigortasi", "#anlaşmalıHastane", "#NetworkHospital", "#KomikSigorta", "#hamamböceği", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sağlık", "#sigortanetwork"]
+    },
+    {
+      "id": 42,
+      "soru": "İşyerinde çalışanların kişisel eşyaları sigortalı mı?",
+      "kategori": "isyeri_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "cat",
+      "hook": "LAPTOPUM ÇALINDI, KİM ÖDER?",
+      "reels_caption": "Kedi ofiste dizüstü bilgisayarı çalınınca işveren sigortasını sorguladı 😾💻 Herkese lazım!",
+      "hashtags": ["#isyerisigortasi", "#çalışanSigortası", "#EmployeeInsurance", "#KomikSigorta", "#kedi", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#ofissigorta", "#FunnyCat"]
+    },
+    {
+      "id": 43,
+      "soru": "Konut sigortasında eşya değerleme nasıl yapılır?",
+      "kategori": "konut_sigortasi",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "fox",
+      "hook": "EŞYALARIM NE KADAR EDER?",
+      "reels_caption": "Tilki antika vazo için sigorta değerini tartışırken anlaşamadı 🦊🏺 Değerleme önemli!",
+      "hashtags": ["#konutsigortasi", "#eşyaDeğerleme", "#ContentInsurance", "#KomikSigorta", "#tilki", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#evEşyası", "#sigortadeğeri"]
+    },
+    {
+      "id": 44,
+      "soru": "Motorlu araç dışındaki kaza sigortaları var mı?",
+      "kategori": "kasko",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "chicken",
+      "hook": "BİSİKLET SİGORTASI VAR MI?",
+      "reels_caption": "Tavuk bisikletiyle kaza yaptı, sigorta aradı... 🐔🚲💥 Bisiklet sigortası gerçek!",
+      "hashtags": ["#bisikletSigortası", "#CycleInsurance", "#KomikSigorta", "#tavuk", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#bisiklet", "#aracsigortasi", "#FunnyChicken"]
+    },
+    {
+      "id": 45,
+      "soru": "Sigorta şirketi iflas ederse poliçem ne olur?",
+      "kategori": "hayat_sigortasi",
+      "komik_potansiyel": 5,
+      "en_uygun_karakter": "bear",
+      "hook": "SİGORTA ŞİRKETİ BATTI!",
+      "reels_caption": "Ayı sigorta şirketinin battığını duyunca yıkıldı 🐻📰 Güvence Fonu var, merak etme!",
+      "hashtags": ["#sigortaGüvenceFonu", "#InsuranceGuarantee", "#KomikSigorta", "#ayı", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#sigortagüvence", "#sigortaiflas", "#policeGüvence"]
+    },
+    {
+      "id": 46,
+      "soru": "Yabancı uyruklu kişiler Türkiye'de sigorta yaptırabilir mi?",
+      "kategori": "saglik_sigortasi",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "mouse",
+      "hook": "YABANCI = SİGORTA YOK MU?",
+      "reels_caption": "Fare yabancı uyruklu arkadaşı için sigorta araştırdı 🐭🌍 Yabancılar da sigortalanabilir!",
+      "hashtags": ["#yabancıSigorta", "#ForeignerInsurance", "#KomikSigorta", "#fare", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#yabancıuyruklu", "#göçmensigorta", "#expat"]
+    },
+    {
+      "id": 47,
+      "soru": "Araç plakası değişince sigorta otomatik güncellenir mi?",
+      "kategori": "trafik_sigortasi",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "pigeon",
+      "hook": "PLAKA DEĞIŞTI, SİGORTA?",
+      "reels_caption": "Güvercin plaka değiştirdi ama sigortayı unuttu 🐦🚗 Hemen güncellenmeli!",
+      "hashtags": ["#trafiksigortasi", "#plakaGüncelleme", "#InsuranceUpdate", "#KomikSigorta", "#güvercin", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#plakaDeğişimi", "#aracsigortasi"]
+    },
+    {
+      "id": 48,
+      "soru": "İşyeri sorumluluk sigortası neden önemli?",
+      "kategori": "isyeri_sigortasi",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "cockroach",
+      "hook": "MÜŞTERİ DÜŞERSE KİM ÖDER?",
+      "reels_caption": "Hamamböceği işyerinde müşteri düştü... sorumluluk sigortası onu kurtardı mı? 🪳🏪",
+      "hashtags": ["#sorumlulukSigortası", "#LiabilityInsurance", "#KomikSigorta", "#hamamböceği", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#işyeriSigorta", "#esnafsigorta", "#isletmesigorta"]
+    },
+    {
+      "id": 49,
+      "soru": "Online sigorta almak güvenli mi?",
+      "kategori": "kasko",
+      "komik_potansiyel": 4,
+      "en_uygun_karakter": "fox",
+      "hook": "İNTERNETTEN SİGORTA MI?",
+      "reels_caption": "Tilki online sigorta sitesini inceledi, güvenli mi değil mi? 🦊💻 İpuçları burada!",
+      "hashtags": ["#onlineSigorta", "#OnlineInsurance", "#KomikSigorta", "#tilki", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#dijitalSigorta", "#sigortasatın", "#FunnyFox"]
+    },
+    {
+      "id": 50,
+      "soru": "Sigorta poliçemi kaybedersem yeni kopya alabilir miyim?",
+      "kategori": "kasko",
+      "komik_potansiyel": 3,
+      "en_uygun_karakter": "cat",
+      "hook": "POLİÇEMİ KAYBETTİM!",
+      "reels_caption": "Kedi poliçesini kaybedince panikleye başladı 😾📄 E-poliçe çağında kaybolmaz!",
+      "hashtags": ["#sigortaPoliçe", "#Epolice", "#InsuranceCopy", "#KomikSigorta", "#kedi", "#SigortaBot", "#türkiye", "#AnimasyonVideo", "#dijitalPoliçe", "#FunnyCat"]
+    }
+  ]
+}

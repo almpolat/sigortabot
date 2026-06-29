@@ -1,0 +1,28 @@
+{
+  "id": "fox",
+  "name_tr": "Tilki",
+  "description": "Always has an angle — clever, resourceful, finds loopholes in any policy",
+  "personality_tr": "Kurnaz, her zaman bir çözüm yolu bulan, poliçelerdeki boşlukları anında keşfeden",
+  "visual": {
+    "style": "3D cartoon anthropomorphic red fox",
+    "colors": {
+      "body": "#D4530B",
+      "tail_tip": "#FFFFFF",
+      "muzzle": "#FDEBD0",
+      "eyes": "#FFB900"
+    },
+    "signature_props": ["magnifying glass", "stack of policy documents", "calculator"],
+    "expressions": {
+      "default": "sly grin, one eyebrow raised, eyes narrowed",
+      "planning": "finger on chin, looking upward with glowing eyes",
+      "triumphant": "fist pump, huge smile, tail wagging"
+    },
+    "size": "medium-tall, sleek build, wears a stylish blazer"
+  },
+  "veo_style_guide": "3D animated anthropomorphic red fox character, bipedal, wearing a slim-fit blazer, large amber eyes, fluffy tail, cartoon proportions, sly intelligent expression, dynamic studio lighting, 9:16 vertical frame",
+  "catchphrases_tr": [
+    "Her poliçenin bir boşluğu vardır.",
+    "Çözüm? Ben zaten buldum bile.",
+    "Sigorta şirketleri benden korkar!"
+  ]
+}

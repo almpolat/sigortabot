@@ -1,0 +1,28 @@
+{
+  "id": "pigeon",
+  "name_tr": "Güvercin",
+  "description": "Street-smart city bird who has overheard every insurance conversation in Istanbul",
+  "personality_tr": "Şehirli, her yerde gezen, İstanbul'un her köşesinden sigorta bilgisi toplayan kentli güvercin",
+  "visual": {
+    "style": "3D cartoon anthropomorphic pigeon",
+    "colors": {
+      "body": "#9E9E9E",
+      "neck_iridescence": "#7B68EE",
+      "eyes": "#FF6347",
+      "beak": "#FFA500"
+    },
+    "signature_props": ["tiny newspaper", "city map", "metro card"],
+    "expressions": {
+      "default": "head tilting rapidly side to side, curious eyes",
+      "knowing": "slow nodding with one eye squinted, looks wise",
+      "excited": "wings flapping rapidly, hopping in place"
+    },
+    "size": "small-medium, compact and streetwise, wears a tiny newsboy cap"
+  },
+  "veo_style_guide": "3D animated anthropomorphic pigeon character, bipedal, wearing a tiny newsboy cap, iridescent neck feathers, large expressive red-orange eyes, city backdrop, cartoon proportions, urban lighting, 9:16 vertical frame",
+  "catchphrases_tr": [
+    "Ben bunu zaten duymuştum çünkü her yerdeyim.",
+    "İstanbul'da 5 yıldır sigorta şirketi önünde bekliyorum.",
+    "Abi ben her şeyi bilirim, guvercin miyim ne!"
+  ]
+}

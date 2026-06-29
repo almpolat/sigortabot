@@ -1,0 +1,28 @@
+{
+  "id": "mouse",
+  "name_tr": "Fare",
+  "description": "Small but brilliant — finds gaps in systems, reads the fine print nobody else does",
+  "personality_tr": "Küçük ama akıllı, her deliği bilen, poliçenin ince yazısını okuyan tek karakter",
+  "visual": {
+    "style": "3D cartoon anthropomorphic grey mouse",
+    "colors": {
+      "body": "#B0B0B0",
+      "ears_inner": "#FFB6C1",
+      "eyes": "#000080",
+      "nose": "#FF69B4"
+    },
+    "signature_props": ["magnifying glass (comically oversized)", "fine-print document", "calculator watch"],
+    "expressions": {
+      "default": "alert, big bright eyes, whiskers twitching",
+      "eureka": "light bulb above head, jumping with joy",
+      "suspicious": "eyes narrowed, one finger raised, leaning forward"
+    },
+    "size": "very small, but moves with quick confident energy, wears a lab coat"
+  },
+  "veo_style_guide": "3D animated anthropomorphic grey mouse character, very small bipedal, wearing a tiny white lab coat, enormous magnifying glass, large deep blue eyes, pink nose, twitching whiskers, cartoon proportions, bright clean lighting, 9:16 vertical frame",
+  "catchphrases_tr": [
+    "Küçüğüm ama ince yazıyı ben okurum!",
+    "Bu boşluğu ben yıllarca önce buldum.",
+    "Boyum küçük, zekam büyük."
+  ]
+}

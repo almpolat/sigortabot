@@ -1,0 +1,28 @@
+{
+  "id": "chicken",
+  "name_tr": "Tavuk",
+  "description": "Paranoid worrier — panics about every possible risk, over-insures everything",
+  "personality_tr": "Aşırı endişeli, her şeyden korkan, her riski düşünen, sigortasız tek dakika yaşayamayan",
+  "visual": {
+    "style": "3D cartoon anthropomorphic yellow chicken",
+    "colors": {
+      "body": "#FFD700",
+      "beak": "#FF8C00",
+      "comb": "#FF0000",
+      "eyes": "#4169E1"
+    },
+    "signature_props": ["helmet", "bubble wrap vest", "list of worst-case scenarios"],
+    "expressions": {
+      "default": "wide worried eyes, beak open slightly",
+      "panicking": "feathers fluffed up, running in place, beak wide open",
+      "relieved": "hand over heart, deep breath, eyes closed"
+    },
+    "size": "small, round body, always slightly crouched in fear"
+  },
+  "veo_style_guide": "3D animated anthropomorphic yellow chicken character, bipedal, wearing a tiny safety helmet and bubble wrap vest, huge expressive blue eyes, red comb on head, round panicky body, cartoon proportions, bright studio lighting, 9:16 vertical frame",
+  "catchphrases_tr": [
+    "Ya olursa?! YA OLURSA?!",
+    "Ben onu düşünmüştüm zaten!",
+    "Sigortam yoktu... bir daha olmaz!"
+  ]
+}
