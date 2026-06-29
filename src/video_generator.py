@@ -94,7 +94,7 @@ def generate_scene_video(
     prompt: str,
     output_filename: str,
     aspect_ratio: str = "9:16",
-    duration: str = "8",
+    duration: str = "8s",
     model: Optional[str] = None,
 ) -> Path:
     """Promptu veo3'e gönderir, video üretilince output/ altına MP4 kaydeder."""
